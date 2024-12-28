@@ -1,0 +1,2 @@
+[24-Dec-2024 12:16:10 UTC] PHP Fatal error:  Cannot use Illuminate\Support\Facades\Http as Http because the name is already in use in /home/keaton/keaton.a1professionals.net_public_html/app/Services/Zoho/ZohoService.php on line 7
+[24-Dec-2024 12:17:47 UTC] PHP Fatal error:  Cannot redeclare App\Services\Zoho\ZohoService::refreshAccessToken() in /home/keaton/keaton.a1professionals.net_public_html/app/Services/Zoho/ZohoService.php on line 50
