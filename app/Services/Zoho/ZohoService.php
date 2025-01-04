@@ -132,8 +132,7 @@ class ZohoService
 
 public function createLead_new($featureName, $email, $firstName, $lastName)
 {
-    // Debugging output for parameters
-    \Log::info("Feature Name: $featureName, Email: $email, First Name: $firstName, last Name: $lastName");
+    
 
     $attempts = 0;
     $maxAttempts = 5; // Maximum number of retry attempts
@@ -142,7 +141,7 @@ public function createLead_new($featureName, $email, $firstName, $lastName)
     while ($attempts < $maxAttempts) {
         try {
             // Get access token
-           echo $accessToken = $this->getAccessToken();
+            $accessToken = $this->getAccessToken();
 
             // Set the lead source
             $leadSource = 'Website-' . ucfirst($featureName);
@@ -163,13 +162,7 @@ public function createLead_new($featureName, $email, $firstName, $lastName)
 
             ]);
 
-  echo"sucess";
-                echo "<pre>";
-print_r($response);
-$responseBody = $response->json(); // Laravel's Http Client method
-print_r($responseBody);
-
-die();
+  
             // If the request is successful, return the response
             if ($response->successful()) {
                 return $response->json();
@@ -179,11 +172,7 @@ die();
             // If the rate limit error occurs, throw an exception
             if ($response->status() == 429) {
                 \Log::warning("Rate limit exceeded. Retrying... Attempt: $attempts");
-                echo"failed";
-                echo "<pre>";
-print_r($response);
-
-die();
+                
                 $attempts++;
                 sleep($backoff); // Wait before retrying
                 $backoff *= 2; // Exponential backoff
