@@ -43,13 +43,12 @@ public function create(array $input): User
         $zohoService = new ZohoService();
 
         // Create the lead in Zoho CRM
-        $lead = $zohoService->createLead(
+        $lead = $zohoService->createLead_new(
             'signup', 
             $user->email, 
             $user->name, 
             $user->name,
         );
-       //echo "<pre>"; print_r($lead);
        
     
         // Save Zoho ID in the user's record
